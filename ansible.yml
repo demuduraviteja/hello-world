@@ -1,0 +1,8 @@
+- name: copyModule
+  hosts: tomcat
+  become: true
+  tasks:
+   - name: copying the war file.
+     ansible.builtin.copy:
+       src: /var/lib/jenkins/workspace/ansible-demo1/webapp/target/webapp.war
+       dest: /opt/tomcat/webapps
