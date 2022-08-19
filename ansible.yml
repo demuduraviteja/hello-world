@@ -6,3 +6,9 @@
      ansible.builtin.copy:
        src: /var/lib/jenkins/workspace/ansible-demo1/webapp/target/webapp.war
        dest: /opt/tomcat/webapps
+     notify: restart_tomcat
+  handlers:
+  - name: restart_tomcat
+    service:
+      name: tomcat
+      state: restarted
